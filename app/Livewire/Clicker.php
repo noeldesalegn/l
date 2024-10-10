@@ -7,21 +7,23 @@ use Livewire\Component;
 
 class Clicker extends Component
 {
-    public $username = "test user";
+    public $name;
+    public $email;
+    public $password;
+
     public function CreateNewUser(){
         User::create([
-            'name' => "test user 3",
-            'email' => "test@gmail3.com",
-            'password' => "1234567899"
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
         ]);
     }
 
     public function render()
     {
-        $title="test";
+
         $users=User::all();
         return view('livewire.clicker',[
-            'title' => $title,
             'users' => $users
         ]);
     }
