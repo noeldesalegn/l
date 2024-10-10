@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Clicker extends Component
 {
+    //public data
     public $name;
     public $email;
     public $password;
