@@ -1,13 +1,22 @@
 <div>
     {{-- Be like water. --}}
-    <form wire:submit.prevent=" CreateNewUser">
-        <input type="text" wire:model="name" placeholder="name"
-        style="margin: 20px;">
-        <input type="email" wire:model="email" placeholder="email" style="margin: 20px;">
-        <input type="password" wire:model="password" placeholder="password"
-        style="margin: 20px;">
+    <form wire:submit.prevent=" CreateNewUser" action="">
+        <input type="text" class="block rounded border border-gray-100 px-3 py-1 mb-1 mt-1 ml-2"  wire:model="name" placeholder="name"
+        >
+        @error('name')
+            <span class="text-red-500 text-xs ml-2">{{$message}}</span>
+        @enderror
+        <input type="email" class="block rounded border border-gray-100 px-3 py-1 mt-1 mb-1 ml-2" wire:model="email" placeholder="email" >
+        @error('email')
+        <span class="text-red-500 text-xs ml-2">{{$message}}</span>
+    @enderror
+        <input type="password" class="block rounded border border-gray-100 px-3 py-1 mt-1 mb-1 ml-2" wire:model="password" placeholder="password"
+       >
+       @error('password')
+       <span class="text-red-500 text-xs ml-2">{{$message}}</span>
+   @enderror
     <br>
-    <button style=" background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 60px;">
+    <button  class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 ml-2 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
         Create new use
     </button>
     </form>
